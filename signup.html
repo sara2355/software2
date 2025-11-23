@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>إنشاء حساب - مِهَن</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="mihn_style.css">
+</head>
+<body class="signup-page">
+    
+    <header class="site-header">
+
+      <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
+    
+ <!--pattern="^05[0-9]{8}$"--> 
+ <!--minlength="8"--> 
+
+</header>
+    
+    <div class="form-message"></div>
+    
+  <div class="container">
+    <h2>إنشاء حساب جديد</h2>
+    <p class="desc">سجل حسابك للبدء كمستفيد أو مزوّد خدمة.</p>
+
+   
+
+    <form id="signupForm" >
+      <label>الاسم الكامل</label>
+      <input type="text" name="full_name"  required >
+
+      <label>البريد الإلكتروني</label>
+      <input type="email" name="email"  required >
+
+      <label>رقم الجوال</label>
+      <input type="tel" name="phone" placeholder="مثال: 05XXXXXXXX"  required >
+
+      <label>كلمة المرور</label>
+
+    <input type="password" id="password" name="password" placeholder="يجب أن تكون كلمة المرور ٨ خانات على الأقل" required>
+ 
+
+      <label>نوع المستخدم</label>
+      <div class="radio-group">
+        <label><input type="radio" name="user_type" value="provider" required> مزود خدمة</label>
+        <label><input type="radio" name="user_type" value="recipient" required> مستفيد</label>
+      </div>
+
+      <button type="submit">إنشاء الحساب</button>
+       
+      
+    </form>
+
+    <p class="center small" style="margin-top:14px;">
+      لديك حساب؟ <a href="login.html">سجّل الدخول من هنا</a><br>
+      <a href="index.html" aria-label="العودة للصفحة الرئيسية ">العودة للصفحة الرئيسية
+  </a>
+    </p>
+  </div>
+    
+    <footer class="site-footer" role="contentinfo" aria-label="تذييل الموقع">
+    <div class="footer-inner">
+      <a href="mailto:contact@mihn.sa" class="footer-email">contact@mihn.sa</a>
+      <span class="separator">•</span>
+      <span>© 2025 مِهَن — جميع الحقوق محفوظة</span>
+    </div>
+  </footer>
+    
+    <script>
+
+
+
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  let formData = new FormData(this);
+
+  fetch("signup.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+      
+const toast = document.querySelector(".form-message");
+   toast.style.display = "block";
+    toast.innerHTML = data.message;
+
+    toast.style.background = data.status === "error" ? "#ffe8e6" : "#e7f7ec";
+    toast.style.color = data.status === "error" ? "#9b1c16" : "#17653a";
+    toast.style.borderColor = data.status === "error" ? "#f3b1ab" : "#b9e4c9";
+
+ 
+    
+    if (data.status === "success") {
+      setTimeout(() => {
+        window.location.href = "login.html";
+      }, 1200);
+    }
+  })
+  .catch(err => console.error(err));
+});
+
+</script>
+
+</body>
+</html>

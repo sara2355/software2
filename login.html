@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل الدخول - مِهَن</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="mihn_style.css">
+</head>
+
+ <header class="site-header">
+
+      <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
+    
+   
+
+</header>
+
+<body class="login-page">
+  <div class="form-message"></div>
+  <div class="container">
+    <h2>تسجيل الدخول</h2>
+    <p class="desc">ادخل بريدك الإلكتروني مع كلمة المرور  .</p>
+
+   
+    <form id="loginForm" >
+      <label> البريد الإلكتروني</label>
+      <input type="text" name="identifier" required>
+
+      <label>كلمة المرور</label>
+      
+      <input type="password" id="password" name="password" required>
+
+      
+      <button type="submit">دخول</button>
+      
+    
+    </form>
+
+    <p class="center small" style="margin-top:14px;">
+      ليس لديك حساب؟ <a href="signup.html">أنشئ حسابًا الآن</a><br>
+      <a href="index.html" aria-label="العودة للصفحة الرئيسية ">العودة للصفحة الرئيسية
+  </a>
+    </p>
+  </div>
+    
+    <footer class="site-footer" role="contentinfo" aria-label="تذييل الموقع">
+    <div class="footer-inner">
+      <a href="mailto:contact@mihn.sa" class="footer-email">contact@mihn.sa</a>
+      <span class="separator">•</span>
+      <span>© 2025 مِهَن — جميع الحقوق محفوظة</span>
+    </div>
+  </footer>
+   
+    <script>
+       
+document.getElementById('loginForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  let formData = new FormData(this);
+
+  fetch("login.php", {
+    method: "POST",
+    body: formData
+  })
+  .then(res => res.json())
+  .then(data => {
+    
+const toast = document.querySelector(".form-message");
+   toast.style.display = "block";
+    toast.innerHTML = data.message;
+
+    toast.style.background = data.status === "error" ? "#ffe8e6" : "#e7f7ec";
+    toast.style.color = data.status === "error" ? "#9b1c16" : "#17653a";
+    toast.style.borderColor = data.status === "error" ? "#f3b1ab" : "#b9e4c9";
+
+    if (data.status === "success") {
+      setTimeout(() => {
+        window.location.href = data.redirect;
+      }, 1000);
+    }
+  })
+  .catch(err => console.error(err));
+});
+</script>
+    
+</body>
+</html>
