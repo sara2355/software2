@@ -24,7 +24,7 @@ $user = $result->fetch_assoc();
 if (!$user) {
     echo json_encode([
         "status" => "error",
-        "message" => "اسم المستخدم أو البريد الإلكتروني غير صحيح."
+        "message" => "كلمة المرور أو البريد الإلكتروني غير صحيح."
     ]);
     exit;
 }
@@ -32,7 +32,7 @@ if (!$user) {
 if (!password_verify($pass, $user["password"])) {
     echo json_encode([
         "status" => "error",
-        "message" => "كلمة المرور غير صحيحة."
+        "message" => "كلمة المرور أو البريد الإلكتروني غير صحيح."
     ]);
     exit;
 }
