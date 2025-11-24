@@ -42,8 +42,8 @@ $_SESSION["user_type"] = $user["user_type"];
 
 // اختيار الصفحة حسب نوع المستخدم
 $redirect = ($user["user_type"] === "provider")
-            ? "provider.html"
-            : "services.html";
+            ? "provider.php"
+            : "services.php";
 
 // رد JSON للـ fetch
 echo json_encode([
