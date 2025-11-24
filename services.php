@@ -276,7 +276,7 @@ $cartCount = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
     </div>
 
     <div style="display:flex;gap:10px;align-items:center;margin-inline-start:auto;">
-      <a class="cart-btn orders" href="requests_recipient.php">📄 قائمة الطلبات</a>
+      <a class="cart-btn orders" href="requests.php">📄 قائمة الطلبات</a>
       <a class="cart-btn" href="chart.php" id="cartBtn">
         🛒 السلة <span class="badge" id="cartCount"><?php echo $cartCount; ?></span>
       </a>
