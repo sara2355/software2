@@ -1,24 +1,19 @@
 <?php
+
 session_start();
+require 'db.php';
 
-/* ====== تسجيل دخول (مؤقت للاختبار) ====== */
-$provider_id = 2;   // عدّليها لاحقاً بعد ما يشتغل اللوق ان الحقيقي
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-/* ====== الاتصال بالداتا بيس ====== */
-$host = "localhost";
-$user = "root";
-$pass = "root";
-$db   = "mihn";
 
-$conn = mysqli_connect($host, $user, $pass, $db);
-if (!$conn) {
-    die("DB connection failed: " . mysqli_connect_error());
+if (isset($_SESSION['user_type']) && $_SESSION['user_type'] == 'provider') {
+    $provider_id = $_SESSION['user_id']; 
+} else {
+    die("❌ لا يوجد مقدم خدمة مسجّل الدخول.");
 }
 
-/* ====== التحقق من وجود id ====== */
-//if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
-  //  die("<h3 style='text-align:center;margin-top:50px;color:#b33;'>خدمة غير صحيحة.</h3>");
-//}
+
 
 $service_id = (int) $_GET['id'];
 
@@ -210,3 +205,4 @@ button:hover { background:#2f423a; }
 </html>
 
 <?php mysqli_close($conn); ?>
+
