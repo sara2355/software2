@@ -1,26 +1,18 @@
 <?php
-//session_start();
+session_start();
+require 'db.php';
 
-// ===== التحقق من أن المستخدم مسجّل دخول كمقدم خدمة =====
-//if (!isset($_SESSION['user_id']) || !isset($_SESSION['user_type']) || $_SESSION['user_type'] !== 'provider') {
-    // لو ما هو مقدم خدمة أو مو مسجّل دخول، يرجع لصفحة تسجيل الدخول
-    //header("Location: login.php");
-   // exit();
-//}
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
-// رقم مقدم الخدمة الحالي من الـ session
-//$provider_id = (int) $_SESSION['user_id'];
-
-// ===== اتصال بقاعدة البيانات 
-$host = "localhost";
-$user = "root";
-$pass = "root"; // عدليه لو مختلف
-$db   = "mihn";
-
-$conn = mysqli_connect($host, $user, $pass, $db);
-if (!$conn) {
-    die("DB connection failed: " . mysqli_connect_error());
+/* ====== تسجيل الدخول (مؤقت للاختبار) ====== */
+// بعد ما تجهزون اللوق إن الحقيقي غيري السطرين اللي تحت:
+if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'provider') {
+    header("Location: login.php");
+    exit();
 }
+
+
 
 // ===== معالجة ضغط أزرار قبول / رفض =====
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['request_id'], $_POST['action'])) {
