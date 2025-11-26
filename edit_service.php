@@ -126,8 +126,8 @@ input, select {
 button {
     margin-top:20px;
     padding:12px;
-    background:#4a675a; color:white;
-    border:none; border-radius:8px;
+background: var(--accent, #007BFF);
+        color: var(--white, #fff);    border:none; border-radius:8px;
     font-weight:bold; cursor:pointer;
 }
 button:hover { background:#2f423a; }

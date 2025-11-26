@@ -62,12 +62,18 @@ $result = mysqli_stmt_get_result($stmt);
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
+    html, body {
+    height: 100%;
+}
+
   body {
     font-family: 'Tajawal', sans-serif;
     background-color: #e9e6e2;
     margin: 0;
     padding: 0;
     color: #2d2d2d;
+      display: flex;
+    flex-direction: column;
   }
 
   /* ===== Header ===== */
@@ -85,6 +91,8 @@ $result = mysqli_stmt_get_result($stmt);
   /* ===== Main ===== */
   main {
     padding: 40px 20px 80px;
+        flex: 1;
+
   }
   h1 {
     text-align: center;
@@ -204,7 +212,7 @@ $result = mysqli_stmt_get_result($stmt);
 
 <!-- ===== Header ===== -->
 <header class="site-header">
-  <a href="index.html" aria-label="الصفحة الرئيسية">
+  <a href="provider.php" aria-label="الصفحة الرئيسية">
     <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
   </a>
 </header>
@@ -266,7 +274,7 @@ $result = mysqli_stmt_get_result($stmt);
   </div>
 
   <!-- زر العودة -->
-  <a href="provider.html" class="back-btn">العودة إلى الصفحة الرئيسية</a>
+  <a href="provider.php" class="back-btn">العودة إلى الصفحة الرئيسية</a>
 </main>
 
 <!-- ===== Footer ===== -->
