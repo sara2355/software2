@@ -1,5 +1,9 @@
 <?php
 session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 require 'db.php'; // ملف الاتصال
 
 // في المستقبل: تأكدي أن اليوزر (المستفيد) مخزن في السيشن
@@ -117,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['cart'] = [];
 
         // تحويل لصفحة طلبات المستفيد
-        redirect('requests_recipient.php'); // عدليه لو اسم الصفحة مختلف
+        redirect('requests.php'); 
     }
 }
 
