@@ -3,11 +3,7 @@
 session_start();
 require 'db.php'; 
 
-// 1. Authentication and Authorization Check
-if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'recipient') {
-    header("Location: login.php");
-    exit();
-}
+
 
 $recipient_id = $_SESSION['user_id'];
 $requests_data = [];
@@ -101,13 +97,21 @@ function get_status_display($status, $is_rated) {
     --shadow-lg:0 5px 15px rgba(0,0,0,0.08);
 }
 
-*{box-sizing:border-box}
+ *{box-sizing:border-box}
+
+html, body{
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
 body{
-    font-family: 'Tajawal', sans-serif;
-    background-color: var(--bg);
-    margin: 0;
-    padding: 0;
-    color: var(--text);
+  font-family:"Tajawal",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;          /* مهم */
+  flex-direction:column; /* فوق/تحت */
+  min-height:100vh;
 }
 
 .site-header {
@@ -126,14 +130,17 @@ body{
 .logout-btn{position:absolute;right:20px;top:50%;transform:translateY(-50%)}
 .logout-btn img{width:55px;height:55px;cursor:pointer;transition:.3s}
 .logout-btn img:hover{transform:scale(1.1)}
-.back-link{
-  position:absolute;left:25px;top:25px;font-size:28px;
-  color:#5A8DA8;text-decoration:none;font-weight:800;transition:.2s
-}
-.back-link:hover{color:#4F7E97;transform:translateX(-3px)}
+
 
 /* --- Main Content Styling --- */
-main { padding: 40px 20px 80px; }
+ main{
+  padding:24px;
+  max-width:1200px;
+  margin:0 auto;   /* بس وسط أفقياً */
+  width:100%;
+  flex:1;          /* هذا اللي يدز الفوتر لتحت */
+}
+
 h1 { text-align: center; margin-bottom: 35px; font-weight: 700; color: #3e3e3e; }
 
 .requests { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; }
@@ -220,14 +227,15 @@ h1 { text-align: center; margin-bottom: 35px; font-weight: 700; color: #3e3e3e; 
 }
 /* --- Footer Styling --- */
 .site-footer {
-    background: #d8d5d0;
-    border-top: 2px solid #b9b6b2;
-    padding: 15px;
-    text-align: center;
-    color: #4b4b4b;
-    font-size: 15px;
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+  background: #d8d5d0;
+  border-top: 2px solid #b9b6b2;
+  padding: 15px;
+  text-align: center;
+  color: #4b4b4b;
+  font-size: 15px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
 }
+
 .footer-email { color: #3e3e3e; text-decoration: none; font-weight: bold; }
 .separator { margin: 0 8px; color: #999; }
 
@@ -240,9 +248,13 @@ h1 { text-align: center; margin-bottom: 35px; font-weight: 700; color: #3e3e3e; 
 <body>
 
 <header class="site-header">
-  <a href="services.php" class="back-link">←</a>
-  <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
-  <a href="index.html" aria-label="تسجيل الخروج" class="logout-btn">
+  <!-- الشعار صار رابط يرجع لصفحة الخدمات (هوم المستفيد) -->
+  <a href="services.php">
+    <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
+  </a>
+
+  <!-- زر تسجيل الخروج -->
+  <a href="index.php" aria-label="تسجيل الخروج" class="logout-btn">
     <img src="image/logout.png" alt="خروج">
   </a>
 </header>
