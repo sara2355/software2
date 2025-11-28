@@ -1,4 +1,4 @@
-<?php
+<<?php
 session_start();
 require 'db.php';
 
@@ -54,7 +54,6 @@ if ($reviews) {
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
-
 <style>
 :root{
   --bg:#e9e6e2;
@@ -69,11 +68,20 @@ if ($reviews) {
   --shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
+*{box-sizing:border-box}
+
+html, body{
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
 body{
   font-family:"Tajawal",sans-serif;
   background:var(--bg);
-  margin:0;
   color:var(--text);
+  display:flex;
+  flex-direction:column;
 }
 
 /* Header */
@@ -99,8 +107,9 @@ body{
 /* Main content */
 main{
   padding:24px;
-  display:flex;
-  justify-content:center;
+  max-width:1200px;
+  width:100%;
+  flex:1;              /* يخلي الفوتر دايمًا تحت */
 }
 
 .card{
@@ -111,6 +120,7 @@ main{
   max-width:650px;
   width:100%;
   padding:24px;
+  margin:40px auto;     /* ✅ رجّع الكرت بالنص مع مسافة من فوق */
 }
 
 .card h2{
@@ -147,6 +157,10 @@ main{
   margin-bottom:10px;
 }
 
+.muted{
+  color:var(--muted);    /* ✅ عشان نص "لا توجد تقييمات بعد" يطلع صح */
+}
+
 .btn{
   background:var(--accent);
   color:#fff;
@@ -161,28 +175,33 @@ main{
 }
 
 /* Footer */
-.site-footer{
-  background:#d8d5d0;
-  border-top:2px solid #b9b6b2;
-  padding:15px;
-  text-align:center;
-  color:#4b4b4b;
-  font-size:15px;
-  margin-top:40px;
+.site-footer {
+  background: #d8d5d0;
+  border-top: 2px solid #b9b6b2;
+  padding: 15px;
+  text-align: center;
+  color: #4b4b4b;
+  font-size: 15px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
 }
 .footer-email{color:#3e3e3e;font-weight:bold;text-decoration:none}
 .separator{margin:0 8px;color:#666}
-</style>
 
+</style>
 </head>
 
 <body>
 
 <!-- HEADER -->
 <header class="site-header">
-  <img src="image/logo.jpg" class="logo">
-  <a href="index.html" class="logout-btn">
-    <img src="image/logout.png">
+  <!-- الشعار صار رابط يرجع لصفحة الخدمات (هوم المستفيد) -->
+  <a href="services.php">
+    <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
+  </a>
+
+  <!-- زر تسجيل الخروج -->
+  <a href="index.php" aria-label="تسجيل الخروج" class="logout-btn">
+    <img src="image/logout.png" alt="خروج">
   </a>
 </header>
 
@@ -233,4 +252,5 @@ main{
 
 </body>
 </html>
+
 
