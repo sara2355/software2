@@ -175,11 +175,7 @@ body{
 .logout-btn{position:absolute;right:20px;top:50%;transform:translateY(-50%)}
 .logout-btn img{width:55px;height:55px;cursor:pointer;transition:.3s}
 .logout-btn img:hover{transform:scale(1.1)}
-.back-link{
-  position:absolute;left:25px;top:25px;font-size:28px;
-  color:#5A8DA8;text-decoration:none;font-weight:800;transition:.2s
-}
-.back-link:hover{color:#4F7E97;transform:translateX(-3px)}
+
 
 main{padding:24px;flex:1}
 .page-title{
@@ -249,9 +245,13 @@ main{padding:24px;flex:1}
 <body>
 
 <header class="site-header">
-  <a href="services.php" class="back-link">←</a>
-  <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
-  <a href="index.html" aria-label="تسجيل الخروج" class="logout-btn">
+  <!-- الشعار صار رابط يرجع لصفحة الخدمات (هوم المستفيد) -->
+  <a href="services.php">
+    <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
+  </a>
+
+  <!-- زر تسجيل الخروج -->
+  <a href="index.php" aria-label="تسجيل الخروج" class="logout-btn">
     <img src="image/logout.png" alt="خروج">
   </a>
 </header>
