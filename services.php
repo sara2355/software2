@@ -127,7 +127,22 @@ $cartCount = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
   }
 
   *{box-sizing:border-box}
-  body{font-family:"Tajawal",sans-serif;background:var(--bg);margin:0;color:var(--text);}
+
+html, body{
+  height:100%;
+  margin:0;
+  padding:0;
+}
+
+body{
+  font-family:"Tajawal",sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  display:flex;          /* مهم */
+  flex-direction:column; /* فوق/تحت */
+  min-height:100vh;
+}
+
 
   .site-header {
     background:#d8d5d0;
@@ -144,7 +159,14 @@ $cartCount = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
   .logout-btn img { width:55px; height:55px; cursor:pointer; transition:.3s; }
   .logout-btn img:hover { transform:scale(1.1); }
 
-  main{padding:24px;max-width:1200px;margin:auto}
+ main{
+  padding:24px;
+  max-width:1200px;
+  margin:0 auto;   /* بس وسط أفقياً */
+  width:100%;
+  flex:1;          /* هذا اللي يدز الفوتر لتحت */
+}
+
 
   .toolbar{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:16px}
   .search{display:flex;gap:8px;align-items:center}
@@ -201,10 +223,16 @@ $cartCount = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
   }
   .empty-state .hint{margin-top:6px;font-size:.95rem;color:#888}
 
-  .site-footer {
-    background:#d8d5d0;border-top:2px solid #b9b6b2;padding:15px;text-align:center;
-    color:#4b4b4b;font-size:15px;box-shadow:0 -2px 6px rgba(0,0,0,0.05);
-  }
+ .site-footer {
+  background: #d8d5d0;
+  border-top: 2px solid #b9b6b2;
+  padding: 15px;
+  text-align: center;
+  color: #4b4b4b;
+  font-size: 15px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.05);
+}
+
   .footer-email{color:#3e3e3e;text-decoration:none;font-weight:bold}
   .separator{margin:0 8px;color:#999}
 </style>
@@ -348,4 +376,3 @@ $cartCount = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
 
 </body>
 </html>
-
