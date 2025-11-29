@@ -53,14 +53,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmt_insert->execute();
 
                     // Success handling (Acceptance Criteria: After submission, I should see "Thank you for your feedback.")
-                    $message = ['type' => 'success', 'text' => 'شكرًا لك! تم إرسال تقييمك بنجاح. سيتم تحويلك قريباً.'];
-                    
-                    // Delay redirect to allow user to see success message
-                    echo "<script>
-                        setTimeout(() => {
-                            window.location.href = 'requests.php';
-                        }, 2000);
-                    </script>";
+                    // New Code: Immediate PHP redirect
+// Note: We don't need to set $message here since the redirect happens immediately.
+
+// Set a status flag in the session (optional, for displaying a success message 
+// on the requests page if you choose to implement that there later)
+$_SESSION['rating_status'] = 'success'; 
+
+// Perform an IMMEDIATE PHP redirect, stopping all further rendering
+header("Location: requests.php");
+exit(); // CRUCIAL: Stops script execution immediately
                 }
             } else {
                 $message = ['type' => 'error', 'text' => 'خطأ: لم يتم العثور على الطلب أو غير مصرح لك بتقييمه.'];
@@ -301,7 +303,7 @@ h1{text-align:center; color:var(--text); margin-bottom:10px; font-size:1.8rem;}
         العودة للطلبات
     </a>
     <div>
-        <a href="requests.php">
+        <a href="services.php">
           <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
         </a>
     </div>
