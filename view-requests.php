@@ -5,12 +5,15 @@ require 'db.php';
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-/* ====== تسجيل الدخول (مؤقت للاختبار) ====== */
-// بعد ما تجهزون اللوق إن الحقيقي غيري السطرين اللي تحت:
+/* ====== تسجيل الدخول (بعد دمج شغل البنات) ====== */
 if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'provider') {
     header("Location: login.php");
     exit();
 }
+
+// ✅ مهم جداً: نستخدم نفس رقم المستخدم المخزن في السيشن كمقدم خدمة
+$provider_id = $_SESSION['user_id'];
+
 
 
 
@@ -291,3 +294,4 @@ $result = mysqli_stmt_get_result($stmt);
 mysqli_stmt_close($stmt);
 mysqli_close($conn);
 ?>
+
