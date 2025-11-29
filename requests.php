@@ -254,7 +254,7 @@ h1 { text-align: center; margin-bottom: 35px; font-weight: 700; color: #3e3e3e; 
   </a>
 
   <!-- زر تسجيل الخروج -->
-  <a href="index.php" aria-label="تسجيل الخروج" class="logout-btn">
+  <a href="logout.php" aria-label="تسجيل الخروج" class="logout-btn">
     <img src="image/logout.png" alt="خروج">
   </a>
 </header>
