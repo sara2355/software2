@@ -240,7 +240,7 @@ body{
 <body>
 <header class="site-header">
   <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
-  <a href="index.html" aria-label="تسجيل الخروج" class="logout-btn">
+    <a href="logout.php" aria-label="تسجيل الخروج" class="logout-btn">
     <img src="image/logout.png" alt="خروج">
   </a>
 </header>

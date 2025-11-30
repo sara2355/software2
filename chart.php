@@ -240,20 +240,29 @@ main{padding:24px;flex:1}
 }
 .site-footer a{color:#3e3e3e;font-weight:bold;text-decoration:none}
 .separator{margin:0 8px;color:#999}
+
+  .header-right-img {
+    position: absolute;
+    right: 10px;   /* أقصى اليمين */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;   /* حجم الصورة */
+}
 </style>
 </head>
 <body>
 
 <header class="site-header">
+    
+     <a href="services.php" aria-label="صفحة مقدم الخدمة">
+    <img src="image/home.png" class="header-right-img" alt="مقدم الخدمة" style="width:70px;">
+  </a>
   <!-- الشعار صار رابط يرجع لصفحة الخدمات (هوم المستفيد) -->
-  <a href="services.php">
+  <a href="">
     <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
   </a>
 
-  <!-- زر تسجيل الخروج -->
-  <a href="index.php" aria-label="تسجيل الخروج" class="logout-btn">
-    <img src="image/logout.png" alt="خروج">
-  </a>
+  
 </header>
 
 <main>

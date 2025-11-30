@@ -142,12 +142,26 @@ button:hover { background:#2f423a; }
     background:#f8d7da; color:#721c24;
     border:1px solid #f5c6cb;
 }
+
+
+.header-right-img {
+    position: absolute;
+    right: 10px;   /* أقصى اليمين */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;   /* حجم الصورة */
+}
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <a href="provider.php">
+      <a href="provider.php" aria-label="صفحة مقدم الخدمة">
+    <img src="image/home.png" class="header-right-img" alt="مقدم الخدمة" style="width:70px;">
+  </a>
+
+    
+  <a href="">
     <img src="image/logo.jpg" class="logo" alt="شعار مهن">
   </a>
 </header>

@@ -292,18 +292,29 @@ h1{text-align:center; color:var(--text); margin-bottom:10px; font-size:1.8rem;}
 }
 .footer-email { color: #3e3e3e; text-decoration: none; font-weight: bold; }
 .separator { margin: 0 8px; color: #999; }
+.header-right-img {
+    position: absolute;
+    right: 10px;   /* أقصى اليمين */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;   /* حجم الصورة */
+}
 
 </style>
 </head>
 <body>
 
 <header class="site-header">
+    
+      <a href="services.php" aria-label="صفحة مقدم الخدمة">
+    <img src="image/home.png" class="header-right-img" alt="مقدم الخدمة" style="width:70px;">
+  </a>
     <a href="requests.php" class="back-link">
         <span aria-hidden="true">←</span>
         العودة للطلبات
     </a>
     <div>
-        <a href="services.php">
+        <a href="">
           <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
         </a>
     </div>

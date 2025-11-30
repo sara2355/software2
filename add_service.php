@@ -68,6 +68,17 @@ input, select { width:100%; padding:10px; border-radius:8px; border:1px solid #c
 .msg { text-align:center; font-weight:bold; margin-bottom:15px; }
 h2 { text-align:center; font-size:24px; }
 .site-footer, .site-header { background: #d8d5d0; border:2px solid #b9b6b2; padding: 15px; text-align:center; box-shadow: 0 2px 6px rgba(0,0,0,0.05);}
+
+
+.header-right-img {
+    position: absolute;
+    right: 10px;   /* أقصى اليمين */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;   /* حجم الصورة */
+}
+
+
 .logo { width:120px; }
 .footer-email { color: #3e3e3e; text-decoration:none; font-weight:bold; }
 .separator { margin: 0 8px; color:#999; }
@@ -76,7 +87,13 @@ h2 { text-align:center; font-size:24px; }
 <body>
 
 <header class="site-header">
-  <a href="provider.php" aria-label="الصفحة الرئيسية">
+    
+   <a href="provider.php" aria-label="صفحة مقدم الخدمة">
+    <img src="image/home.png" class="header-right-img" alt="مقدم الخدمة" style="width:70px;">
+  </a>
+
+    
+  <a href="" aria-label="الصفحة الرئيسية">
     <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
   </a>
 </header>

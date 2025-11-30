@@ -60,6 +60,7 @@ $result = mysqli_stmt_get_result($stmt);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MIHN | طلبات الخدمات</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="mihn_style.css">
 
 <style>
     html, body {
@@ -205,13 +206,30 @@ $result = mysqli_stmt_get_result($stmt);
         margin-top: 20px;
         font-size: 15px;
     }
+    
+    .site-footer, .site-header { background: #d8d5d0; border:2px solid #b9b6b2; padding: 15px; text-align:center; box-shadow: 0 2px 6px rgba(0,0,0,0.05);}
+
+    .header-right-img {
+    position: absolute;
+    right: 10px;   /* أقصى اليمين */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;   /* حجم الصورة */
+}
 </style>
 </head>
 <body>
 
 <!-- ===== Header ===== -->
 <header class="site-header">
-  <a href="provider.php" aria-label="الصفحة الرئيسية">
+    
+    
+       <a href="provider.php" aria-label="صفحة مقدم الخدمة">
+    <img src="image/home.png" class="header-right-img" alt="مقدم الخدمة" style="width:70px;">
+  </a>
+    
+    
+  <a href="" aria-label="الصفحة الرئيسية">
     <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
   </a>
 </header>

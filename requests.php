@@ -78,6 +78,7 @@ function get_status_display($status, $is_rated) {
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
 <style>
+
 /* --- MIHN Universal Styling --- */
 :root{
     --bg:#e9e6e2; 
@@ -242,21 +243,30 @@ h1 { text-align: center; margin-bottom: 35px; font-weight: 700; color: #3e3e3e; 
 /* Remove the redundant back-btn at the bottom of the page and back-link from original CSS */
 .back-btn { display: none !important; }
 
+  .header-right-img {
+    position: absolute;
+    right: 10px;   /* أقصى اليمين */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 70px;   /* حجم الصورة */
+}
 </style>
 </head>
 
 <body>
 
 <header class="site-header">
+    
+    
+     <a href="services.php" aria-label="صفحة مقدم الخدمة">
+    <img src="image/home.png" class="header-right-img" alt="مقدم الخدمة" style="width:70px;">
+  </a>
   <!-- الشعار صار رابط يرجع لصفحة الخدمات (هوم المستفيد) -->
-  <a href="services.php">
+  <a href="">
     <img src="image/logo.jpg" alt="شعار مِهَن" class="logo">
   </a>
 
-  <!-- زر تسجيل الخروج -->
-  <a href="logout.php" aria-label="تسجيل الخروج" class="logout-btn">
-    <img src="image/logout.png" alt="خروج">
-  </a>
+  
 </header>
 <main>
   <h1>طلبات الخدمات</h1>
